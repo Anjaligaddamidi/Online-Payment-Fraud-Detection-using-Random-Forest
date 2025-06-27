@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Fraud Detection</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #e9f5ff;
+            text-align: center;
+            padding: 50px;
+        }
+        .box {
+            background-color: #fff;
+            padding: 30px;
+            display: inline-block;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #ccc;
+        }
+        input[type="text"], input[type="password"], input[type="submit"] {
+            padding: 10px;
+            margin: 10px;
+            width: 80%;
+            border-radius: 5px;
+        }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>🔐 User Login</h2>
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+    <form method="POST">
+        <input type="text" name="email" placeholder="Email" required><br>
+        <input type="password" name="password" placeholder="Password" required><br>
+        <input type="submit" value="Login">
+    </form>
+    <p>New user? <a href="/register">Register here</a></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fraud Detection - Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f2ff;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .box {
+            background-color: #fff;
+            padding: 30px;
+            display: inline-block;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #aaa;
+        }
+
+        input[type="text"], input[type="submit"] {
+            padding: 10px;
+            margin: 10px 0;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .result {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .fraud { color: red; }
+        .legit { color: green; }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>💳 Fraud Detection</h2>
+    <form method="POST">
+        <input type="text" name="amount" placeholder="Transaction Amount" required><br>
+        <input type="text" name="oldbalanceOrg" placeholder="Old Balance (Sender)" required><br>
+        <input type="text" name="newbalanceOrig" placeholder="New Balance (Sender)" required><br>
+        <input type="submit" value="Check for Fraud">
+    </form>
+
+    {% if prediction %}
+        <p class="result {{ 'fraud' if prediction == 'Fraudulent' else 'legit' }}">
+            Prediction: {{ prediction }}
+        </p>
+    {% endif %}
+
+    <a href="/logout">🔓 Logout</a>
+</div>
+
+</body>
+</html>
